@@ -1,0 +1,70 @@
+<script type="text/x-red" data-template-name="distance">
+  <div class="form-row node-input-gpsType">
+    <label for="node-input-gpsType"><i class="icon-envelope"></i> <span data-i18n="distance.type.label"></span></label>
+    <select id="node-input-gpsType" style="width:225px !important">
+      <option value="DD" data-i18n="[html]distance.type.dd"></option>
+      <option value="DMS" data-i18n="[html]distance.type.dms"></option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-latitude"><i class="icon-tag"></i> <span data-i18n="distance.latitude"></span></label>
+    <input type="text" id="node-input-latitude" data-i18n="[placeholder]distance.latitude">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-longitude"><i class="icon-tag"></i> <span data-i18n="distance.longitude"></span></label>
+    <input type="text" id="node-input-longitude" data-i18n="[placeholder]distance.longitude">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> <span data-i18n="distance.name"></span></label>
+    <input type="text" id="node-input-name" data-i18n="[placeholder]distance.name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="distance">
+  <p>This node return the distance, in kilometres, between 2 coordinates in
+  degrees.</p>
+
+  <h2>Distance GPS</h2>
+
+  <p>It must have the longitude and the latitude in parameters of the node.</p>
+  <p><b>Warning</b> : options described below are reserved for the node
+  parameters.</p>
+  <p>It doesn&#039;t concern the input of the node that stays in decimal
+  degrees.</p>
+  </br>
+
+  <p><b>Decimal degrees</b> option</p>
+  <p>It&#039;s better to have 4 significant digits after the decimal point to get
+  a proper precision.</p>
+  </br>
+
+  <p><b>Degrees Minutes Secondes</b> option</p>
+  <p>This option consider that there is no letter so the coordinates have to
+  be <b>signed</b></p>
+  <p>For example, latitude : 22&deg 48&#039; 02" and longitude : - 56&deg 17&#039; 35"</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('distance',{
+    category: 'function',
+    color: "#fff",
+    defaults: {
+      name: {value:""},
+      latitude: {value:"",required:true},
+      longitude: {value:"",required:true},
+      gpsType: {value:""},
+    },
+    inputs:1,
+    outputs:1,
+    icon: "distance.png",
+    label: function() {
+      return this.name||"distance";
+    },
+    labelStyle: function() {
+      return this.name?"node_label_italic":"";
+    }
+  });
+</script>

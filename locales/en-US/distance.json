@@ -1,0 +1,12 @@
+{
+  "distance": {
+    "type": {
+      "label": "Type",
+      "dd": "Decimal Degrees",
+      "dms": "Minutes/Secondes Degrees"
+    },
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "name": "Name"
+  }
+}
